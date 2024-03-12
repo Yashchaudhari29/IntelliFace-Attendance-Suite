@@ -1,0 +1,13 @@
+{% extends "./base.html" %}
+
+{% block index %}
+{% load static %}
+<!-- <img src="{% static 'img/i.jpg' %}" alt="not"> -->
+<section class="d-flex justify-content-center align-items-center vh-90">
+    <div class="card shadow custom-div">
+        
+        <h1>Attendance Registererd✅</h1>
+        <a href="{% url 'U_home' %}"><button class="btn btn-primary">Home</button></a>
+    </div>
+</section>
+{% endblock %}

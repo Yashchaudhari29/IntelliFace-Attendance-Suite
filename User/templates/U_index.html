@@ -1,0 +1,50 @@
+{% extends "./base.html" %}
+{% block title %}<title> {{page}}</title>{% endblock %}
+{% block index %}
+{% load static %}
+<!-- <img src="{% static 'img/i.jpg' %}" alt="not"> -->
+
+<section class="d-flex justify-content-center align-items-center vh-100">
+    <div class="card shadow custom-div">
+        <!-- <input type="button" value="Say hello" onClick="showCamera('Android! Start Camera')" />          -->
+        <form method="post" enctype="multipart/form-data" action="{% url 'U_home'%}">
+            {% csrf_token %}
+            {% for message in messages %}
+            <div id="center">
+                {% if color %}
+                <div class="alert alert-{{color}} alert-dismissible fade show" id="msg" role="alert">
+                    {% else %}
+                    <div class="alert alert-danger alert-dismissible fade show" id="msg" role="alert">
+                        {% endif %}
+                        <p id="alerttxt"><strong>Message: </strong> {{message}}</p>
+                        <button type="button" class="btn-close" id="close-btn" data-bs-dismiss="alert"
+                            aria-label="Close"></button>
+                    </div>
+                </div>
+                {% endfor %}
+                <div class="mb-3">
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Enrollment No.</label>
+                        <input type="text" class="form-control" name="en_no">
+                    </div>
+                </div>
+                <div class="text-center">
+                    {% if frame %}
+                    <img src="{{ Img }}">
+                    {% else %}
+                    <img src="{% url 'video_feed' %}" style="border-radius: 10%;  user-select: none;"/>
+                    {% endif %}
+                </div>
+                <div class="d-block custom-button">
+                    <button id="capture-btn" class="btn btn-primary mt-3">Take Attendance</button>
+                </div>
+        </form>
+        <!-- <form method="post" action="{% url 'empty_db' %}">
+            {% csrf_token %}
+            <div class="d-block custom-button mt-3">
+                <button type="submit" class="btn btn-danger">Empty Database</button>
+            </div>
+        </form> -->
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>d</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/CA_index.css' %}">
+</head>
+
+<body class="h-100">
+
+    <nav class="navbar navbar-dark bg-primary navbar-expand-lg center-navbar justify-content-center shadow">
+        <div class="d-flex">
+                <ul class="navbar-nav flex-row">
+                    <li class="nav-item">
+                        <a class="custom-link" href="{% url 'F_home' %}">Faculty</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="custom-link" href="{% url 'U_home' %}">Attendence</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="custom-link" href="{% url 'CA_home' %}">Admin</a>
+                    </li>
+                </ul>
+        </div>
+    </nav>
+    {% block index %}
+    {% endblock %}
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
